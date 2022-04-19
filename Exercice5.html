@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <h1>My web page</h1>
+    </head>
+
+        <body>
+
+            
+
+            <script>
+
+            function cryptage(texte) {
+                const trans = { a: "4", e: "3", i: "1", o: "0", u: "(_)", y: "7"};
+
+                if(typeof texte === "string" && texte !="") {
+                    
+                    let result = "";
+
+                    for (let i = 0; i < texte.legnth; i++) {
+                        if (trans[texte[i]] =! undefined) {
+                            result += trans[texte]
+                        }
+                    }
+                }
+
+                return "Merci de mettre une string valide";
+            }
+            console.log(snakeCase("hello world"));
+                //Pas fini
+            </script>
+
+            
+
+
+        </body>
+
+
+
+
+</html>
