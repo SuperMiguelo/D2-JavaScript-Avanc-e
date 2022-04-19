@@ -10,7 +10,17 @@
 
             <script>
 
-            
+            function capitalize(texte) {
+                if(typeof texte === "string" && texte != "") {
+                    return texte
+                    .split(" ")
+                    .map((mot) => { ucFirst(mot) })
+                    .join(" ");
+                }
+                return "Merci de mettre une string valide";
+            }
+
+            console.log(capitalize("hello world"));
 
             </script>
 
