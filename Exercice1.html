@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <h1>My web page</h1>
+    </head>
+
+        <body style = "text-align:center;">
+
+            <input id = "input" type="text" name="input"/>
+            <button onclick="capitalizeString()">
+            Capitalize
+            </button>
+
+            <h3 id = "modified-string">
+
+            </h3>
+
+            <script>
+
+                function capitalizeString() {
+                    let input = document.getElementById("input");
+                    let headingElement = document.getElementById("modified-string");
+                    let string = input.value;
+                    headingElement.innerHTML = string[0].toUpperCase() + string.slice(1);
+                }
+            </script>
+
+            
+
+
+        </body>
+
+
+
+
+</html>
