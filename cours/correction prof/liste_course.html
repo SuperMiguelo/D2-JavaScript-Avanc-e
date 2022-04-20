@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Liste course JS</title>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <input type="text" id="course" name="course" />
+        <input type="button" id="ok" name="ok" value="ok" />
+        <input type="button" id="supprimer" name="supprimer" value="Supprimer" />
+        <div>
+            <ul id="liste-course">
+                <li>
+                    1kg de farine
+                </li>
+                <li>
+                   un pack de lait
+                </li>
+            </ul>
+        </nav>
+        <script>
+            let course = document.getElementById("course");
+            let listeCourse = document.getElementById("liste-course");
+
+            document.getElementById("ok").addEventListener("click", (event) => {
+                // créé un nouveau li
+                let newLi = document.createElement("li");
+                // ajoute le texte du champ course
+                newLi.innerHTML = course.value;
+                // ajoute le li à listeCourse
+                listeCourse.appendChild(newLi);
+            });
+
+            document.getElementById("supprimer").addEventListener("click", (event) => {
+                
+                // récupère la liste des li contenu dans listeCourse
+                let lis = listeCourse.querySelectorAll("li");
+
+                // test si il reste un li
+                if (lis.length >= 1) {
+                    // supprime le dernier li
+                    lis[lis.length - 1].remove();
+                }
+            });
+        </script>
+    </body>
+</html>

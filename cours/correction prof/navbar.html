@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Navbar JS</title>
+        <style>
+            #nav {
+                width: 600px;
+            }
+
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                border: 1px solid #e7e7e7;
+                background-color: #f3f3f3;
+                overflow: hidden;
+                display: block;
+            }
+            
+            li {
+                float: left;
+                display: list-item;
+            }
+
+            ul li a {
+                display: block;
+                color: #666;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+            ul li a:hover:not(.active) {
+                background-color: #ddd;
+            }
+
+            ul li a.active {
+                color: white;
+                background-color: #008CBA;
+            }
+        </style>
+    </head>
+    <body>      
+        <nav id="nav">
+            <ul>
+                <li>
+                    <a href="#base" >Base</a>
+                </li>
+                <li>
+                    <a href="#script" >Script</a>
+                </li>
+                <li>
+                    <a href="#dom" >Dom</a>
+                </li>
+                <li>
+                    <a href="#horloge" >Horloge</a>
+                </li>
+                <li>
+                    <a href="#event" >Event</a>
+                </li>
+            </ul>
+        </nav>
+        <div id="base">
+            <h2>Base</h2>
+        </div>
+        <div id="script">
+            <h2>Script</h2>
+        </div>        
+        <div id="dom">
+            <h2>Dom</h2>
+        </div>
+        <div id="#horloge">
+            <h2>Horloge</h2>
+        </div> 
+        <div id="#event">
+            <h2>Event</h2>
+        </div>
+        <script>
+            let liens = document.querySelectorAll("#nav a");
+
+            for (let lien of liens) {
+
+                lien.addEventListener("click", (event) => {
+                    event.preventDefault();
+
+                    // récupère le dernier lien qui a été cliqué
+                    let lastClicked = document.querySelector("#nav a.active");
+                    if (lastClicked != null) {
+                        toggleClass(lastClicked, "active");
+                    }
+
+                    addClass(event.target, "active");
+                });
+            }
+
+            function addClass(element, className) {
+                element.classList.add(className)
+            }
+
+            function toggleClass(element, className) {
+                element.classList.toggle(className)
+            }
+        </script>
+    </body>
+</html>

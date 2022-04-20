@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Dom JS</title>
+
+    </head>
+    <body>      
+        <div id="horloge">
+        </div>  
+        <script>
+            // option pour l'affichage
+            const options = { hour: 'numeric', minute: 'numeric', second: 'numeric'};
+
+            // récupérer le div
+            var div = document.getElementById("horloge");
+
+            // créer un paragraphe dans le div
+            var para = document.createElement("p");
+            div.appendChild(para);
+
+            // récupère l'heure
+            var date = new Date();
+
+            // affiche l'heure H:m:s dans le paraphe
+            //para.innerHTML = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+            para.innerHTML = date.toLocaleString('fr-FR', options);
+
+            // met à jour l'affichage avec setInterval
+            setInterval(() => {
+                date = new Date();
+                //para.innerHTML = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+
+                para.innerHTML = date.toLocaleString('fr-FR', options);
+            }, 1000);            
+
+        </script>
+    </body>
+</html>
