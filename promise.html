@@ -1,0 +1,40 @@
+<!doctype html>
+    <html>
+            <head>
+                <title>Our Funky HTML Page</title>
+                <meta name="description" content="Our first page">
+                <meta name="keywords" content="html tutorial template">
+            </head>
+        <body>
+        <button id="promise">  Promise </button>
+        </body>
+
+        <script>
+            document.querySelector("#promise").addEventListener("click", () => {
+                testPromise();
+            });
+
+            function testPromise() {
+                console.log('1');
+
+                const mypromise = new Promise((resolve, reject) => {
+                    console.log('2');
+                    setTimeout(() => {
+                        if(Math.floor(Math.random() * 2) === 1){
+                            resolve('3');
+                        }
+                        reject('echec 3');
+                    }, Math.random()*2000 + 1000);
+                }) 
+                mypromise.then((value)=>{
+                    console.log(value)
+                }).catch(err => console.log(err));
+
+                console.log(mypromise);
+                console.log('4');
+            }
+
+        </script>
+
+
+    </html>
