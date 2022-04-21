@@ -15,7 +15,7 @@ function fetchMovie(apiKey = '3f951fde1f94ff23e3aebbd24b292474') {
         .then(movies => {
             console.log(movies);
             movies.results.forEach(movie => {
-                const image = document.createElement('img');
+                const image = document.createElement('div');
                 image.src = `${movie.itemurl}.movie`;
                 resultSearch.appendChild(image);
             });
@@ -33,7 +33,7 @@ async function fetchMovieAsync(apiKey = '3f951fde1f94ff23e3aebbd24b292474') {
         .then(movies => movies.results);
 
     movies.forEach(movie => {
-        const image = document.createElement('img');
+        const image = document.createElement('div');
         image.src = `${movie.itemurl}.movie`;
         resultSearch.appendChild(image);
     });
