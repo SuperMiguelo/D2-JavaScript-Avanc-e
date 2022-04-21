@@ -1,43 +1,40 @@
 window.addEventListener('DOMContentLoaded', () => {
     
     document.getElementById("rechercher").addEventListener("click", () => {
-        fetchGif();
-
-        // avec async / await
-        //fetchGifAsync();
+        fetchMovie();
     });
 });
 
-function fetchGif(apiKey = '3f951fde1f94ff23e3aebbd24b292474') {
+function fetchMovie(apiKey = '3f951fde1f94ff23e3aebbd24b292474') {
     let search =  document.getElementById('search').value || 'default';
     let limit =  document.getElementById('limit').value || 10;
     let resultSearch = document.getElementById('resultSearch');
 
     fetch(`https://g.tenor.com/v1/search?q=${search}&key=${apiKey}&limit=${limit}`)
         .then(response => response.json())
-        .then(gifs => {
-            console.log(gifs);
-            gifs.results.forEach(gif => {
+        .then(movies => {
+            console.log(movies);
+            movies.results.forEach(movie => {
                 const image = document.createElement('img');
-                image.src = `${gif.itemurl}.gif`;
+                image.src = `${movie.itemurl}.movie`;
                 resultSearch.appendChild(image);
             });
         })
         .catch(err => console.log(err));
 }
 
-async function fetchGifAsync(apiKey = '3f951fde1f94ff23e3aebbd24b292474') {
+async function fetchMovieAsync(apiKey = '3f951fde1f94ff23e3aebbd24b292474') {
     let search =  document.getElementById('search').value || 'default';
     let limit =  document.getElementById('limit').value || 10;
     let resultSearch = document.getElementById('resultSearch');
 
-    const gifs = await fetch(`https://g.tenor.com/v1/search?q=${search}&key=${apiKey}&limit=${limit}`)
+    const movies = await fetch(`https://g.tenor.com/v1/search?q=${search}&key=${apiKey}&limit=${limit}`)
         .then(response => response.json())
-        .then(gifs => gifs.results);
+        .then(movies => movies.results);
 
-    gifs.forEach(gif => {
+    movies.forEach(movie => {
         const image = document.createElement('img');
-        image.src = `${gif.itemurl}.gif`;
+        image.src = `${movie.itemurl}.movie`;
         resultSearch.appendChild(image);
     });
 }
